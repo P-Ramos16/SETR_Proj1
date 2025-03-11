@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "Person.h"
 
 static int currSize = 0;
 static int maxSize = 0;
@@ -20,4 +19,20 @@ int MyDLLInsert() {
     printf("Curr size: %2d\n", currSize);
 
     return 0;
+}
+
+int MyDLLRemove(Person person) {
+
+}
+
+int MyDLLFind(Person person) {
+
+}
+
+int MyDLLFindNext(Person person) {
+
+}
+
+int MyDLLFindPrevious(Person person) {
+
 }
