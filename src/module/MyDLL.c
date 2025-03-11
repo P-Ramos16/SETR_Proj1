@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "person.h"
+#include "Person.h"
 
 static int currSize = 0;
 static int maxSize = 0;
@@ -9,13 +9,15 @@ void MyDLLInit(int mSize) {
     maxSize = mSize;
 }
 
-bool MyDLLInsert() {
+int MyDLLInsert() {
 
     if (currSize + 1 > maxSize) {
         printf(" - ERROR: Maximum array size reached.\n");
-        return false;
+        return 1;
     }
 
     currSize += 1;
-    printf("Curr size: " + currSize);
+    printf("Curr size: %2d\n", currSize);
+
+    return 0;
 }

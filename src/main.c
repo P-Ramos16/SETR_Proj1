@@ -10,8 +10,8 @@
 */
 
 #include <stdio.h>
-#include "module/person.h"
-#include "modult/MyDLL.h"
+#include "module/Person.h"
+#include "module/MyDLL.h"
 
 
 int main(void) {
@@ -23,11 +23,11 @@ int main(void) {
     printf(" - == === Testing adding values === == -\n");
 
     Person prs;
-    prs.first_name = "John";
-    prs.last_name = "Doe";
-    prs.last_name = 1;
+    strcpy(prs.first_name, "John");
+    strcpy(prs.last_name, "Doe");
+    prs.number = 1;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         MyDLLInsert(prs);
     }
 

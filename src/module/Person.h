@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Define a structure for a person
+// Define a structure for a Person
 typedef struct {
     char first_name[32];
     char last_name[32];
