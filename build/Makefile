@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafa/Secretária/SETR/SETR_Proj1/Test
+CMAKE_SOURCE_DIR = /home/rafa/Secretária/SETR/SETR_Proj1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafa/Secretária/SETR/SETR_Proj1/Test/build
+CMAKE_BINARY_DIR = /home/rafa/Secretária/SETR/SETR_Proj1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafa/Secretária/SETR/SETR_Proj1/Test/build/CMakeFiles /home/rafa/Secretária/SETR/SETR_Proj1/Test/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles /home/rafa/Secretária/SETR/SETR_Proj1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafa/Secretária/SETR/SETR_Proj1/Test/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,65 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hello1
+# Target rules for targets named mydll
 
 # Build rule for target.
-hello1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hello1
-.PHONY : hello1
+mydll: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mydll
+.PHONY : mydll
 
 # fast build rule for target.
-hello1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/build
-.PHONY : hello1/fast
+mydll/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/build
+.PHONY : mydll/fast
 
-hello.o: hello.c.o
-.PHONY : hello.o
-
-# target to build an object file
-hello.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/hello.c.o
-.PHONY : hello.c.o
-
-hello.i: hello.c.i
-.PHONY : hello.i
-
-# target to preprocess a source file
-hello.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/hello.c.i
-.PHONY : hello.c.i
-
-hello.s: hello.c.s
-.PHONY : hello.s
-
-# target to generate assembly for a file
-hello.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/hello.c.s
-.PHONY : hello.c.s
-
-main.o: main.c.o
-.PHONY : main.o
+src/main.o: src/main.c.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/main.c.o
-.PHONY : main.c.o
+src/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.o
+.PHONY : src/main.c.o
 
-main.i: main.c.i
-.PHONY : main.i
+src/main.i: src/main.c.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/main.c.i
-.PHONY : main.c.i
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.i
+.PHONY : src/main.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+src/main.s: src/main.c.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello1.dir/build.make CMakeFiles/hello1.dir/main.c.s
-.PHONY : main.c.s
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.s
+.PHONY : src/main.c.s
+
+src/module/MyDLL.o: src/module/MyDLL.c.o
+.PHONY : src/module/MyDLL.o
+
+# target to build an object file
+src/module/MyDLL.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/module/MyDLL.c.o
+.PHONY : src/module/MyDLL.c.o
+
+src/module/MyDLL.i: src/module/MyDLL.c.i
+.PHONY : src/module/MyDLL.i
+
+# target to preprocess a source file
+src/module/MyDLL.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/module/MyDLL.c.i
+.PHONY : src/module/MyDLL.c.i
+
+src/module/MyDLL.s: src/module/MyDLL.c.s
+.PHONY : src/module/MyDLL.s
+
+# target to generate assembly for a file
+src/module/MyDLL.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/module/MyDLL.c.s
+.PHONY : src/module/MyDLL.c.s
 
 # Help Target
 help:
@@ -185,13 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... hello1"
-	@echo "... hello.o"
-	@echo "... hello.i"
-	@echo "... hello.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... mydll"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/module/MyDLL.o"
+	@echo "... src/module/MyDLL.i"
+	@echo "... src/module/MyDLL.s"
 .PHONY : help
 
 

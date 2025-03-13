@@ -1,0 +1,1 @@
+/usr/bin/cc -Wall -Wextra CMakeFiles/mydll_test.dir/src/main.c.o CMakeFiles/mydll_test.dir/src/module/MyDLL.c.o -o mydll_test 

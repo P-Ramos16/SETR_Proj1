@@ -17,19 +17,19 @@
 int main(void) {
     
     printf(" - == === Testing initialization === == -\n");
-    MyDLLInit(4);
+    MyDLLInit(4); // Imicializa a lista com mSize=4
     printf("    -> OK\n\n");
     
     printf(" - == === Testing adding values === == -\n");
-
-    Person prs;
+    
+    /*Person prs;
     strcpy(prs.first_name, "John");
     strcpy(prs.last_name, "Doe");
     prs.number = 1;
 
     for (int i = 0; i < 6; i++) {
         MyDLLInsert(prs);
-    }
+    }*/
 
     return 0;
 }

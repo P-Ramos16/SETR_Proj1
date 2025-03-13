@@ -1,0 +1,3 @@
+/home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles/mydll.dir
+/home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles/edit_cache.dir
+/home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles/rebuild_cache.dir
