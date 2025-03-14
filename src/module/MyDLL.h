@@ -1,11 +1,13 @@
-void MyDLLInit(int maxSize, uint_16 maxSizeLimit);
+#include <stdint.h>
 
-int MyDLLInsert(uint_16 uuid, unsigned char* data, uint_16 size);
+void MyDLLInit(int listSizeLimit, uint16_t itemSizeLimit);
 
-int MyDLLRemove(uint_16 uuid);
+int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize);
 
-int MyDLLFind(uint_16 uuid);
+int MyDLLRemove(uint16_t key);
 
-int MyDLLFindNext(uint_16 uuid);
+int MyDLLFind(uint16_t key);
 
-int MyDLLFindPrevious(uint_16 uuid);
+int MyDLLFindNext(uint16_t key);
+
+int MyDLLFindPrevious(uint16_t key);

@@ -10,26 +10,41 @@
 */
 
 #include <stdio.h>
-#include "Person.h"
+#include <stdint.h>
 #include "module/MyDLL.h"
 
 
 int main(void) {
     
-    printf(" - == === Testing initialization === == -\n");
-    MyDLLInit(4);
-    printf("    -> OK\n\n");
+    printf("\n - == === Testing initialization === == -\n");
+
+    int listSizeLimit = 5;
+    uint16_t itemSizeLimit = 20;
     
-    printf(" - == === Testing adding values === == -\n");
+    MyDLLInit(listSizeLimit, itemSizeLimit);
+    printf(" - List initialized successfully!\n");
+    
 
-    Person prs;
-    strcpy(prs.first_name, "John");
-    strcpy(prs.last_name, "Doe");
-    prs.number = 1;
+    printf("\n - == === Testing adding values === == -\n");
+    uint16_t key1 = 1001;
+    unsigned char data1[] = "TestData1";
 
-    for (int i = 0; i < 6; i++) {
-        MyDLLInsert(prs.number, prs.first_name);
+    if (MyDLLInsert(key1, data1, sizeof(data1)) == 0) {
+        printf(" - Item 1 inserted successfully!\n");
+    } 
+    else {
+        printf(" - Item 1 insertion failed!\n");
     }
-
+    
+    uint16_t key2 = 1002;
+    unsigned char data2[] = "TestData2";
+    
+    if (MyDLLInsert(key2, data2, sizeof(data2)) == 0) {
+        printf(" - Item 2 inserted successfully!\n");
+    } 
+    else {
+        printf(" - Item 2 insertion failed!\n");
+    }
+    
     return 0;
 }

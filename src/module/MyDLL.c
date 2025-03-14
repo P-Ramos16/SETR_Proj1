@@ -1,38 +1,91 @@
 #include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include "Item.h"
 
-static int currSize = 0;
-static int maxSize = 0;
+static int currListSize = 0;
+static int listSizeLimit = 0;
+static int itemSizeLimit = 0;
+static void* list = NULL;
+static Item* head = NULL;
 
-void MyDLLInit(int mSize) {
-    currSize = 0;
-    maxSize = mSize;
+
+void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
+    currListSize = 0;
+    listSizeLimit = listSizeLim;
+    itemSizeLimit = itemSizeLim;
+
+    //  Allocate memory for the entire list size
+    list = malloc(listSizeLimit * itemSizeLimit);
+
+
+    if (!list) {
+        printf("     -> ERROR: List memory allocation did not succeed!\n");
+        exit(EXIT_FAILURE);
+    }
+
 }
 
-int MyDLLInsert() {
+int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
-    if (currSize + 1 > maxSize) {
-        printf(" - ERROR: Maximum array size reached.\n");
+    if (currListSize + 1 > listSizeLimit) {
+        printf("     -> ERROR: Maximum array size reached! Item not added.\n");
         return 1;
     }
 
-    currSize += 1;
-    printf("Curr size: %2d\n", currSize);
+    if (dataSize > itemSizeLimit) {
+        printf("     -> ERROR: Item is too large to be added! Item not added.\n");
+        printf("%d - ", dataSize);
+        printf("%d", itemSizeLimit);
+        return 1;
+    }
+
+    Item* newItem = (Item*) malloc(sizeof(Item) + dataSize);
+    if (!newItem)  {
+        printf("     -> ERROR: Item memory allocation did not succeed!\n");
+        free(newItem);
+        exit(EXIT_FAILURE);
+    }
+
+    newItem->key = key;
+    newItem->dataSize = dataSize;
+    newItem->prev = newItem->next = NULL;
+
+    memcpy(newItem->data, data, dataSize);
+
+    //  If the list is not empty, go through it and get the last Item
+    if (currListSize != 0) {
+        Item* temp = head;
+        while (temp) {
+            //printf("[Key: %u] %s <-> ", temp->key, temp->data);
+            temp = temp->next;
+        }
+    }
+    //  Else, this item is the head
+    else {
+        head = newItem;
+    }
+
+
+
+    currListSize++;
+    //printf("    -> New list size: %2d\n", currListSize);
 
     return 0;
 }
 
-int MyDLLRemove(Person person) {
+int MyDLLRemove(uint16_t key) {
 
 }
 
-int MyDLLFind(Person person) {
+int MyDLLFind(uint16_t key) {
 
 }
 
-int MyDLLFindNext(Person person) {
+int MyDLLFindNext(uint16_t key) {
 
 }
 
-int MyDLLFindPrevious(Person person) {
+int MyDLLFindPrevious(uint16_t key) {
 
 }

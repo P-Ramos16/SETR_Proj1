@@ -10,11 +10,11 @@
 */
 
 #include <stdio.h>
-#include "module/Person.h"
-#include "module/MyDLL.h"
+/* #include "module/Person.h"
+#include "module/MyDLL.h" */
 
 
-int main(void) {
+/* int main(void) {
     
     printf(" - == === Testing initialization === == -\n");
     MyDLLInit(4); // Imicializa a lista com mSize=4
@@ -22,14 +22,14 @@ int main(void) {
     
     printf(" - == === Testing adding values === == -\n");
     
-    /*Person prs;
+    Person prs;
     strcpy(prs.first_name, "John");
     strcpy(prs.last_name, "Doe");
     prs.number = 1;
 
     for (int i = 0; i < 6; i++) {
         MyDLLInsert(prs);
-    }*/
+    }
 
     return 0;
-}
+} */
