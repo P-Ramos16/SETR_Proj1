@@ -56,17 +56,21 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
     //  If the list is not empty, go through it and get the last Item
     if (currListSize != 0) {
         Item* temp = head;
+        Item* last = head;
+
         while (temp) {
             //printf("[Key: %u] %s <-> ", temp->key, temp->data);
+            last = temp;
             temp = temp->next;
         }
+
+        last->next = newItem;
+        newItem->prev = last;
     }
     //  Else, this item is the head
     else {
         head = newItem;
     }
-
-
 
     currListSize++;
     //printf("    -> New list size: %2d\n", currListSize);
@@ -88,4 +92,26 @@ int MyDLLFindNext(uint16_t key) {
 
 int MyDLLFindPrevious(uint16_t key) {
 
+}
+
+int MyDLLPrint() {
+
+    printf("    Key | Data Size | Data \n");
+    printf(" -------+-----------+----");
+
+    for (int i = 0; i < itemSizeLimit; i++) {
+        printf("-");
+    }
+    printf("\n");
+
+    if (currListSize != 0) {
+        Item* temp = head;
+
+        while (temp) {
+            printf(" %6u | %9d | %-*s\n", temp->key, temp->dataSize, itemSizeLimit, temp->data);
+            
+            temp = temp->next;
+        }
+
+    }
 }

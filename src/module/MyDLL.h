@@ -11,3 +11,5 @@ int MyDLLFind(uint16_t key);
 int MyDLLFindNext(uint16_t key);
 
 int MyDLLFindPrevious(uint16_t key);
+
+int MyDLLPrint();

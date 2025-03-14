@@ -46,5 +46,8 @@ int main(void) {
         printf(" - Item 2 insertion failed!\n");
     }
     
+    printf("\n - == === Testing printing === == -\n");
+    MyDLLPrint();
+
     return 0;
 }
