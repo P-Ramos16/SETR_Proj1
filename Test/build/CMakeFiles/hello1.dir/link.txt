@@ -1,0 +1,1 @@
+/usr/bin/cc -Wall -Wextra CMakeFiles/hello1.dir/main.c.o CMakeFiles/hello1.dir/hello.c.o -o hello1 
