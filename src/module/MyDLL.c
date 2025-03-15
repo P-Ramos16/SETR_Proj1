@@ -114,6 +114,10 @@ int MyDLLRemove(uint16_t key) {
         last->next = NULL;
     }
 
+    else if (temp->next == NULL) {  // O item é o último da lista
+        temp->prev->next = NULL;
+    }
+
     // if the item is in the middle
     else{
         temp->prev->next = temp->next;
@@ -125,9 +129,26 @@ int MyDLLRemove(uint16_t key) {
     return 0;
 }
 
-int MyDLLFind(uint16_t key) {
+unsigned char* MyDLLFind(uint16_t key) {
+    
+    if (head == NULL) {
+        printf("     -> ERROR: List is empty! Cannot search.\n");
+        return NULL;
+    }
 
+    Item* temp = head;
+
+    // search for the item with the key
+    while (temp != NULL) {
+        if (temp->key == key) {
+            return temp->data;
+        }
+        temp = temp->next;
+    }
+
+    return NULL;
 }
+
 
 int MyDLLFindNext(uint16_t key) {
 

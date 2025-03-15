@@ -55,7 +55,7 @@ int main(void) {
 
     printf("\n - == === Testing removal === == -\n");
 
-    // Remover o primeiro item (head)
+    // Remove first item (head)
     if (MyDLLRemove(key1) == 0) {
         printf(" - Item 1 removed successfully!\n");
     } 
@@ -63,15 +63,7 @@ int main(void) {
         printf(" - Item 1 removal failed!\n");
     }
 
-    // Remover o segundo item (novo head)
-    if (MyDLLRemove(key2) == 0) {
-        printf(" - Item 2 removed successfully!\n");
-    } 
-    else {
-        printf(" - Item 2 removal failed!\n");
-    }
-
-    // Tentar remover um item que não existe
+    // Try to remove an item inexistente
     uint16_t key3 = 1003;
     if (MyDLLRemove(key3) == 0) {
         printf(" - Item 3 removed successfully!\n");
@@ -80,8 +72,22 @@ int main(void) {
         printf(" - Item 3 removal failed (key not found)!\n");
     }
 
+    printf("\n - == === List state === == -\n");
+    MyDLLPrint();
+
+    // Find an item
+    unsigned char* result;
+    result = MyDLLFind(key2);
+    if (result != NULL) {
+        printf("\n - Item with key %u found: %s\n", key2, result);
+    } 
+    else {
+        printf(" - ERROR: Item with key %u not found!\n", key2);
+    }
+
     printf("\n - == === Final list state === == -\n");
     MyDLLPrint();
+
     
     return 0;
 }
