@@ -129,30 +129,6 @@ mydll/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/build
 .PHONY : mydll/fast
 
-src/main.o: src/main.c.o
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.o
-.PHONY : src/main.c.o
-
-src/main.i: src/main.c.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.i
-.PHONY : src/main.c.i
-
-src/main.s: src/main.c.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/main.c.s
-.PHONY : src/main.c.s
-
 src/module/MyDLL.o: src/module/MyDLL.c.o
 .PHONY : src/module/MyDLL.o
 
@@ -177,6 +153,30 @@ src/module/MyDLL.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/module/MyDLL.c.s
 .PHONY : src/module/MyDLL.c.s
 
+src/tests.o: src/tests.c.o
+.PHONY : src/tests.o
+
+# target to build an object file
+src/tests.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/tests.c.o
+.PHONY : src/tests.c.o
+
+src/tests.i: src/tests.c.i
+.PHONY : src/tests.i
+
+# target to preprocess a source file
+src/tests.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/tests.c.i
+.PHONY : src/tests.c.i
+
+src/tests.s: src/tests.c.s
+.PHONY : src/tests.s
+
+# target to generate assembly for a file
+src/tests.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mydll.dir/build.make CMakeFiles/mydll.dir/src/tests.c.s
+.PHONY : src/tests.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mydll"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 	@echo "... src/module/MyDLL.o"
 	@echo "... src/module/MyDLL.i"
 	@echo "... src/module/MyDLL.s"
+	@echo "... src/tests.o"
+	@echo "... src/tests.i"
+	@echo "... src/tests.s"
 .PHONY : help
 
 

@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mydll.dir/src/main.c.o"
-  "CMakeFiles/mydll.dir/src/main.c.o.d"
   "CMakeFiles/mydll.dir/src/module/MyDLL.c.o"
   "CMakeFiles/mydll.dir/src/module/MyDLL.c.o.d"
+  "CMakeFiles/mydll.dir/src/tests.c.o"
+  "CMakeFiles/mydll.dir/src/tests.c.o.d"
   "mydll"
   "mydll.pdb"
 )

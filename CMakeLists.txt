@@ -6,7 +6,8 @@ set(CMAKE_C_FLAGS "-Wall -Wextra")  # Adiciona flags de compilação
 
 # Adiciona os ficheiros-fonte do projeto
 add_executable(mydll 
-    src/main.c 
+    #src/main.c
+    src/tests.c 
     src/module/MyDLL.c
 )
 

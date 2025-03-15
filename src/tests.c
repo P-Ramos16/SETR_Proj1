@@ -26,6 +26,8 @@ int main(void) {
     
 
     printf("\n - == === Testing adding values === == -\n");
+
+
     uint16_t key1 = 1001;
     unsigned char data1[] = "TestData1";
 
@@ -36,6 +38,7 @@ int main(void) {
         printf(" - Item 1 insertion failed!\n");
     }
     
+
     uint16_t key2 = 1002;
     unsigned char data2[] = "TestData2";
     
@@ -49,5 +52,36 @@ int main(void) {
     printf("\n - == === Testing printing === == -\n");
     MyDLLPrint();
 
+
+    printf("\n - == === Testing removal === == -\n");
+
+    // Remover o primeiro item (head)
+    if (MyDLLRemove(key1) == 0) {
+        printf(" - Item 1 removed successfully!\n");
+    } 
+    else {
+        printf(" - Item 1 removal failed!\n");
+    }
+
+    // Remover o segundo item (novo head)
+    if (MyDLLRemove(key2) == 0) {
+        printf(" - Item 2 removed successfully!\n");
+    } 
+    else {
+        printf(" - Item 2 removal failed!\n");
+    }
+
+    // Tentar remover um item que não existe
+    uint16_t key3 = 1003;
+    if (MyDLLRemove(key3) == 0) {
+        printf(" - Item 3 removed successfully!\n");
+    } 
+    else {
+        printf(" - Item 3 removal failed (key not found)!\n");
+    }
+
+    printf("\n - == === Final list state === == -\n");
+    MyDLLPrint();
+    
     return 0;
 }

@@ -79,7 +79,50 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 }
 
 int MyDLLRemove(uint16_t key) {
+    
+    if(head == NULL) {
+        printf("     -> ERROR: List is empty! Item not removed.\n");
+        return 1;
+    }
 
+    // search for the item with the key
+    Item* temp = head;
+    while(temp != NULL && temp->key != key){
+        temp = temp->next;
+    }
+
+    // if the item is not found
+    if(temp == NULL){
+        printf("     -> ERROR: Item not found! Cannot removed.\n");
+        return 1;
+    }
+
+    // if the item is the head
+    if(temp == head){
+        head = temp->next;
+        if(head){
+            head->prev = NULL;
+        }
+    }
+
+    // if the item is the last
+    else if (temp->next == NULL) {
+        Item* last = head; 
+        while (last->next != temp) {
+            last = last->next;
+        }
+        last->next = NULL;
+    }
+
+    // if the item is in the middle
+    else{
+        temp->prev->next = temp->next;
+        temp->next->prev = temp->prev;
+    }
+
+    free(temp);
+    currListSize--;
+    return 0;
 }
 
 int MyDLLFind(uint16_t key) {

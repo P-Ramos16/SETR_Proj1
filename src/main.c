@@ -14,8 +14,8 @@
 #include "module/MyDLL.h" */
 
 
-/* int main(void) {
-    
+ int main(void) {
+/*    
     printf(" - == === Testing initialization === == -\n");
     MyDLLInit(4); // Imicializa a lista com mSize=4
     printf("    -> OK\n\n");
@@ -30,6 +30,6 @@
     for (int i = 0; i < 6; i++) {
         MyDLLInsert(prs);
     }
-
+ */
     return 0;
-} */
+} 
