@@ -8,8 +8,8 @@ int MyDLLRemove(uint16_t key);
 
 unsigned char* MyDLLFind(uint16_t key);
 
-int MyDLLFindNext(uint16_t key);
+unsigned char* MyDLLFindNext();
 
-int MyDLLFindPrevious(uint16_t key);
+unsigned char* MyDLLFindPrevious();
 
 int MyDLLPrint();

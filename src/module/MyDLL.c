@@ -6,8 +6,10 @@
 static int currListSize = 0;
 static int listSizeLimit = 0;
 static int itemSizeLimit = 0;
+
 static void* list = NULL;
 static Item* head = NULL;
+static Item* selectedItem = NULL;
 
 
 void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
@@ -59,7 +61,6 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
         Item* last = head;
 
         while (temp) {
-            //printf("[Key: %u] %s <-> ", temp->key, temp->data);
             last = temp;
             temp = temp->next;
         }
@@ -73,7 +74,7 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
     }
 
     currListSize++;
-    //printf("    -> New list size: %2d\n", currListSize);
+    selectedItem = newItem;
 
     return 0;
 }
@@ -81,52 +82,48 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 int MyDLLRemove(uint16_t key) {
     
     if(head == NULL) {
-        printf("     -> ERROR: List is empty! Item not removed.\n");
+        printf("     -> ERROR: List is empty! No item removed.\n");
         return 1;
     }
 
     // search for the item with the key
     Item* temp = head;
+
     while(temp != NULL && temp->key != key){
         temp = temp->next;
     }
 
     // if the item is not found
     if(temp == NULL){
-        printf("     -> ERROR: Item not found! Cannot removed.\n");
+        printf("     -> ERROR: Item with key %u not found!\n", key);
         return 1;
     }
 
     // if the item is the head
-    if(temp == head){
+    if (temp == head){
         head = temp->next;
+        
         if(head){
             head->prev = NULL;
         }
     }
-
-    // if the item is the last
-    else if (temp->next == NULL) {
-        Item* last = head; 
-        while (last->next != temp) {
-            last = last->next;
-        }
-        last->next = NULL;
-    }
-
-    else if (temp->next == NULL) {  // O item é o último da lista
-        temp->prev->next = NULL;
-    }
-
-    // if the item is in the middle
-    else{
+    else {
         temp->prev->next = temp->next;
+    }
+    
+    //  If it's not the last node
+    if (temp->next != NULL) {
         temp->next->prev = temp->prev;
+        selectedItem = temp->next;
+    }
+    else {
+        selectedItem = temp->prev;
     }
 
     free(temp);
     currListSize--;
     return 0;
+
 }
 
 unsigned char* MyDLLFind(uint16_t key) {
@@ -141,8 +138,10 @@ unsigned char* MyDLLFind(uint16_t key) {
     // search for the item with the key
     while (temp != NULL) {
         if (temp->key == key) {
+            selectedItem = temp;
             return temp->data;
         }
+
         temp = temp->next;
     }
 
@@ -150,12 +149,40 @@ unsigned char* MyDLLFind(uint16_t key) {
 }
 
 
-int MyDLLFindNext(uint16_t key) {
+unsigned char* MyDLLFindNext() {
 
+    if (head == NULL || selectedItem == NULL) {
+        printf("     -> ERROR: List is empty! Cannot search.\n");
+        return NULL;
+    }
+
+
+    // search for the item with the key
+    if (selectedItem->next == NULL) {
+        return NULL;
+    }
+
+    selectedItem = selectedItem->next;
+
+    return selectedItem->data;
 }
 
-int MyDLLFindPrevious(uint16_t key) {
+unsigned char* MyDLLFindPrevious() {
 
+    if (head == NULL || selectedItem == NULL) {
+        printf("     -> ERROR: List is empty! Cannot search.\n");
+        return NULL;
+    }
+
+
+    // search for the item with the key
+    if (selectedItem->prev == NULL) {
+        return NULL;
+    }
+
+    selectedItem = selectedItem->prev;
+
+    return selectedItem->data;
 }
 
 int MyDLLPrint() {
