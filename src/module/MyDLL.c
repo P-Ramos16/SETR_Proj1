@@ -22,7 +22,7 @@ void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
 
 
     if (!list) {
-        printf("     -> ERROR: List memory allocation did not succeed!\n");
+        printf(" -> ERROR: List memory allocation did not succeed!\n");
         exit(EXIT_FAILURE);
     }
 
@@ -31,12 +31,12 @@ void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
 int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
     if (currListSize + 1 > listSizeLimit) {
-        printf("     -> ERROR: Maximum array size reached! Item not added.\n");
+        printf(" -> ERROR: Maximum array size reached! Item not added.\n");
         return 1;
     }
 
     if (dataSize > itemSizeLimit) {
-        printf("     -> ERROR: Item is too large to be added! Item not added.\n");
+        printf(" -> ERROR: Item is too large to be added! Item not added.\n");
         printf("%d - ", dataSize);
         printf("%d", itemSizeLimit);
         return 1;
@@ -44,7 +44,7 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
     Item* newItem = (Item*) malloc(sizeof(Item) + dataSize);
     if (!newItem)  {
-        printf("     -> ERROR: Item memory allocation did not succeed!\n");
+        printf(" -> ERROR: Item memory allocation did not succeed!\n");
         free(newItem);
         exit(EXIT_FAILURE);
     }
@@ -82,7 +82,7 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 int MyDLLRemove(uint16_t key) {
     
     if(head == NULL) {
-        printf("     -> ERROR: List is empty! No item removed.\n");
+        printf(" -> ERROR: List is empty! No item removed.\n");
         return 1;
     }
 
@@ -95,7 +95,7 @@ int MyDLLRemove(uint16_t key) {
 
     // if the item is not found
     if(temp == NULL){
-        printf("     -> ERROR: Item with key %u not found!\n", key);
+        printf(" -> ERROR: Item with key %u not found!\n", key);
         return 1;
     }
 
@@ -129,7 +129,7 @@ int MyDLLRemove(uint16_t key) {
 unsigned char* MyDLLFind(uint16_t key) {
     
     if (head == NULL) {
-        printf("     -> ERROR: List is empty! Cannot search.\n");
+        printf(" -> ERROR: List is empty! Cannot search.\n");
         return NULL;
     }
 
@@ -152,7 +152,7 @@ unsigned char* MyDLLFind(uint16_t key) {
 unsigned char* MyDLLFindNext() {
 
     if (head == NULL || selectedItem == NULL) {
-        printf("     -> ERROR: List is empty! Cannot search.\n");
+        printf(" -> ERROR: List is empty! Cannot search.\n");
         return NULL;
     }
 
@@ -170,7 +170,7 @@ unsigned char* MyDLLFindNext() {
 unsigned char* MyDLLFindPrevious() {
 
     if (head == NULL || selectedItem == NULL) {
-        printf("     -> ERROR: List is empty! Cannot search.\n");
+        printf(" -> ERROR: List is empty! Cannot search.\n");
         return NULL;
     }
 
@@ -187,22 +187,30 @@ unsigned char* MyDLLFindPrevious() {
 
 int MyDLLPrint() {
 
-    printf("    Key | Data Size | Data \n");
-    printf(" -------+-----------+----");
+    printf(   " ╭───────┬───────────┬");
 
-    for (int i = 0; i < itemSizeLimit; i++) {
-        printf("-");
-    }
-    printf("\n");
+    for (int i = 0; i < itemSizeLimit; i++) printf("─");
+    
+    printf("╮\n │  Key  │ Data Size │ Data");
+    for (int i = 0; i < itemSizeLimit-5; i++) printf(" ");
+    printf("│\n ├───────┼───────────┼");
+
+    for (int i = 0; i < itemSizeLimit; i++) printf("─");
+
+    printf("┤\n");
 
     if (currListSize != 0) {
         Item* temp = head;
 
         while (temp) {
-            printf(" %6u | %9d | %-*s\n", temp->key, temp->dataSize, itemSizeLimit, temp->data);
+            printf(" │ %5u │ %9d │ %-*s│\n", temp->key, temp->dataSize, itemSizeLimit-1, temp->data);
             
             temp = temp->next;
         }
 
     }
+
+    printf(" ╰───────┴───────────┴");
+    for (int i = 0; i < itemSizeLimit; i++) printf("─");
+    printf("╯\n");
 }
