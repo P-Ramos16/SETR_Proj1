@@ -69,19 +69,19 @@ include CMakeFiles/mydll.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mydll.dir/flags.make
 
-CMakeFiles/mydll.dir/src/tests.c.o: CMakeFiles/mydll.dir/flags.make
-CMakeFiles/mydll.dir/src/tests.c.o: /home/rafa/Secretária/SETR/SETR_Proj1/src/tests.c
-CMakeFiles/mydll.dir/src/tests.c.o: CMakeFiles/mydll.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mydll.dir/src/tests.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mydll.dir/src/tests.c.o -MF CMakeFiles/mydll.dir/src/tests.c.o.d -o CMakeFiles/mydll.dir/src/tests.c.o -c /home/rafa/Secretária/SETR/SETR_Proj1/src/tests.c
+CMakeFiles/mydll.dir/src/main.c.o: CMakeFiles/mydll.dir/flags.make
+CMakeFiles/mydll.dir/src/main.c.o: /home/rafa/Secretária/SETR/SETR_Proj1/src/main.c
+CMakeFiles/mydll.dir/src/main.c.o: CMakeFiles/mydll.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rafa/Secretária/SETR/SETR_Proj1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mydll.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mydll.dir/src/main.c.o -MF CMakeFiles/mydll.dir/src/main.c.o.d -o CMakeFiles/mydll.dir/src/main.c.o -c /home/rafa/Secretária/SETR/SETR_Proj1/src/main.c
 
-CMakeFiles/mydll.dir/src/tests.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/mydll.dir/src/tests.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rafa/Secretária/SETR/SETR_Proj1/src/tests.c > CMakeFiles/mydll.dir/src/tests.c.i
+CMakeFiles/mydll.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/mydll.dir/src/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rafa/Secretária/SETR/SETR_Proj1/src/main.c > CMakeFiles/mydll.dir/src/main.c.i
 
-CMakeFiles/mydll.dir/src/tests.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/mydll.dir/src/tests.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rafa/Secretária/SETR/SETR_Proj1/src/tests.c -o CMakeFiles/mydll.dir/src/tests.c.s
+CMakeFiles/mydll.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/mydll.dir/src/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rafa/Secretária/SETR/SETR_Proj1/src/main.c -o CMakeFiles/mydll.dir/src/main.c.s
 
 CMakeFiles/mydll.dir/src/module/MyDLL.c.o: CMakeFiles/mydll.dir/flags.make
 CMakeFiles/mydll.dir/src/module/MyDLL.c.o: /home/rafa/Secretária/SETR/SETR_Proj1/src/module/MyDLL.c
@@ -99,13 +99,13 @@ CMakeFiles/mydll.dir/src/module/MyDLL.c.s: cmake_force
 
 # Object files for target mydll
 mydll_OBJECTS = \
-"CMakeFiles/mydll.dir/src/tests.c.o" \
+"CMakeFiles/mydll.dir/src/main.c.o" \
 "CMakeFiles/mydll.dir/src/module/MyDLL.c.o"
 
 # External object files for target mydll
 mydll_EXTERNAL_OBJECTS =
 
-mydll: CMakeFiles/mydll.dir/src/tests.c.o
+mydll: CMakeFiles/mydll.dir/src/main.c.o
 mydll: CMakeFiles/mydll.dir/src/module/MyDLL.c.o
 mydll: CMakeFiles/mydll.dir/build.make
 mydll: CMakeFiles/mydll.dir/link.txt
