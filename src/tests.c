@@ -4,9 +4,9 @@
 *        This file tests all the funtions on the 
 *       MyDLL module developped for this class
 *
-* \author Pedro Ramos 
-* \author Rafael Morgado
-* \date 11/3/2025
+* \author Pedro Ramos, n.º 107348
+* \author Rafael Morgado, n.º 104277
+* \date 14/3/2025
 */
 
 #include <stdio.h>
@@ -14,6 +14,13 @@
 #include "module/MyDLL.h"
 
 
+/**
+ * @brief Main function to execute tests on the MyDLL module.
+ * 
+ * Initializes the list, inserts elements, prints them, searches, and removes items.
+ *
+ * @return Returns 0 upon successful execution.
+ */
 int main(void) {
     
     printf(" ╭───────────────────────────────────────────────╮\n");
@@ -27,8 +34,8 @@ int main(void) {
     printf(" │             Testing initialization            │\n");
     printf(" ├───────────────────────────────────────────────┤\n");
 
-    int listSizeLimit = 5;
-    uint16_t itemSizeLimit = 20;
+    int listSizeLimit = 5;       /**< Maximum number of elements in the list. */
+    uint16_t itemSizeLimit = 20; /**< Maximum size of an individual item. */
     
     MyDLLInit(listSizeLimit, itemSizeLimit);
     
@@ -40,7 +47,7 @@ int main(void) {
 
 
 
-
+    /** @brief Inserts an item into the list. */
     printf(" ╭───────────────────────────────────────────────╮\n");
     printf(" │             Testing adding values             │\n");
     printf(" ├───────────────────────────────────────────────┤\n");
@@ -82,15 +89,16 @@ int main(void) {
 
 
 
-
+    /** @brief Prints the current list state. */
     printf(" ╭───────────────────────────────────────────────╮\n");
     printf(" │               Testing printing                │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");
+    
     MyDLLPrint();
 
 
 
-
+    /** @brief Searches for an item with a specific key. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
     printf(" │                Testing search                 │\n");
     printf(" ├───────────────────────────────────────────────┤\n");
@@ -148,6 +156,7 @@ int main(void) {
 
 
 
+    /** @brief Removes an item from the list. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
     printf(" │            Testing removing items             │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");
@@ -196,7 +205,7 @@ int main(void) {
 
 
 
-
+    /** @brief Final list state. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
     printf(" │                  List state                   │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");

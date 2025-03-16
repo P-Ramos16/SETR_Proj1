@@ -1,17 +1,40 @@
+/**
+ * @file MyDLL.c
+ * @brief Implementation of a double linked list (DLL) with various operations.
+ * 
+ * This file contains the actial implementation for the double linked list.
+ *
+ * \author Pedro Ramos, n.º 107348
+ * \author Rafael Morgado, n.º 104277
+ * \date 13/3/2025
+ */
+
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include "Item.h"
 
+/** Current size of the list. */
 static int currListSize = 0;
+/** Maximum allowed size of the list. */
 static int listSizeLimit = 0;
+/** Maximum allowed size for an item. */
 static int itemSizeLimit = 0;
 
-static void* list = NULL;
-static Item* head = NULL;
-static Item* selectedItem = NULL;
+static void* list = NULL; /**< Pointer to the allocated memory for the list. */
+static Item* head = NULL; /**< Pointer to the head of the list. */
+static Item* selectedItem = NULL; /**< Pointer to the currently selected item. */
 
 
+unsigned char* MyDLLFind(uint16_t key);
+
+/**
+ * @brief Initializes the double linked list.
+ *
+ * @param listSizeLim Maximum number of items allowed in the list.
+ * @param itemSizeLim Maximum size of an individual item.
+ */
 void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
     currListSize = 0;
     listSizeLimit = listSizeLim;
@@ -28,6 +51,15 @@ void MyDLLInit(int listSizeLim, uint16_t itemSizeLim) {
 
 }
 
+
+/**
+ * @brief Inserts a new item into the list.
+ *
+ * @param key Unique identifier for the item.
+ * @param data Pointer to the item's data.
+ * @param dataSize Size of the item's data.
+ * @return 0 on success, 1 on failure.
+ */
 int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
     if (currListSize + 1 > listSizeLimit) {
@@ -37,10 +69,14 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
     if (dataSize > itemSizeLimit) {
         printf(" -> ERROR: Item is too large to be added! Item not added.\n");
-        printf("%d - ", dataSize);
-        printf("%d", itemSizeLimit);
         return 1;
     }
+
+    if (MyDLLFind(key) != NULL) {
+        printf(" -> ERROR: Item key is not unique! Item not added.\n");
+        return 1;
+    }
+
 
     Item* newItem = (Item*) malloc(sizeof(Item) + dataSize);
     if (!newItem)  {
@@ -79,6 +115,13 @@ int MyDLLInsert(uint16_t key, unsigned char* data, uint16_t dataSize) {
     return 0;
 }
 
+
+/**
+ * @brief Removes an item from the list.
+ *
+ * @param key Unique identifier for the item to be removed.
+ * @return 0 on success, 1 if the item was not found.
+ */
 int MyDLLRemove(uint16_t key) {
     
     if(head == NULL) {
@@ -126,10 +169,17 @@ int MyDLLRemove(uint16_t key) {
 
 }
 
+
+/**
+ * @brief Finds an item in the list by key.
+ *
+ * @param key Unique identifier for the item to find.
+ * @return Pointer to the item's data if found, NULL otherwise.
+ */
 unsigned char* MyDLLFind(uint16_t key) {
     
     if (head == NULL) {
-        printf(" -> ERROR: List is empty! Cannot search.\n");
+        //  ERROR: List is empty! Cannot search.
         return NULL;
     }
 
@@ -149,6 +199,11 @@ unsigned char* MyDLLFind(uint16_t key) {
 }
 
 
+/**
+ * @brief Finds the next item in the list.
+ *
+ * @return Pointer to the next item's data if available, NULL otherwise.
+ */
 unsigned char* MyDLLFindNext() {
 
     if (head == NULL || selectedItem == NULL) {
@@ -167,6 +222,12 @@ unsigned char* MyDLLFindNext() {
     return selectedItem->data;
 }
 
+
+/**
+ * @brief Finds the previous item in the list.
+ *
+ * @return Pointer to the previous item's data if available, NULL otherwise.
+ */
 unsigned char* MyDLLFindPrevious() {
 
     if (head == NULL || selectedItem == NULL) {
@@ -185,6 +246,9 @@ unsigned char* MyDLLFindPrevious() {
     return selectedItem->data;
 }
 
+/**
+ * @brief Prints the contents of the list in a formatted table.
+ */
 int MyDLLPrint() {
 
     printf(   " ╭───────┬───────────┬");

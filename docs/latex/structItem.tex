@@ -1,0 +1,67 @@
+\doxysection{Item Struct Reference}
+\hypertarget{structItem}{}\label{structItem}\index{Item@{Item}}
+
+
+Represents an item in the doubly linked list.  
+
+
+
+
+{\ttfamily \#include $<$Item.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structItem_a7dd8a615d8b5463881b0cdb31df664b1}{key}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structItem_a864cef01e0d9ec70f64888d85646be5c}{data\+Size}}
+\item 
+struct \mbox{\hyperlink{structItem}{Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structItem_a2ac541da55afe6a893990a6b47643fe6}{prev}}
+\item 
+struct \mbox{\hyperlink{structItem}{Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structItem_a6805b7d0bb98eb940404897b713986f7}{next}}
+\item 
+unsigned char \mbox{\hyperlink{structItem_a0be0e57c899823a6fb41d246c430092b}{data}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an item in the doubly linked list. 
+
+This structure contains a unique key, data size, pointers to previous and next items in the list, and a flexible array for data storage. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structItem_a0be0e57c899823a6fb41d246c430092b}\index{Item@{Item}!data@{data}}
+\index{data@{data}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{structItem_a0be0e57c899823a6fb41d246c430092b} 
+unsigned char Item\+::data\mbox{[}$\,$\mbox{]}}
+
+Flexible array for storing item data. \Hypertarget{structItem_a864cef01e0d9ec70f64888d85646be5c}\index{Item@{Item}!dataSize@{dataSize}}
+\index{dataSize@{dataSize}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{dataSize}{dataSize}}
+{\footnotesize\ttfamily \label{structItem_a864cef01e0d9ec70f64888d85646be5c} 
+size\+\_\+t Item\+::data\+Size}
+
+Size of the data stored in the item. \Hypertarget{structItem_a7dd8a615d8b5463881b0cdb31df664b1}\index{Item@{Item}!key@{key}}
+\index{key@{key}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily \label{structItem_a7dd8a615d8b5463881b0cdb31df664b1} 
+uint16\+\_\+t Item\+::key}
+
+Unique identifier for the item. \Hypertarget{structItem_a6805b7d0bb98eb940404897b713986f7}\index{Item@{Item}!next@{next}}
+\index{next@{next}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \label{structItem_a6805b7d0bb98eb940404897b713986f7} 
+struct \mbox{\hyperlink{structItem}{Item}}\texorpdfstring{$\ast$}{*} Item\+::next}
+
+Pointer to the next item in the list. \Hypertarget{structItem_a2ac541da55afe6a893990a6b47643fe6}\index{Item@{Item}!prev@{prev}}
+\index{prev@{prev}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily \label{structItem_a2ac541da55afe6a893990a6b47643fe6} 
+struct \mbox{\hyperlink{structItem}{Item}}\texorpdfstring{$\ast$}{*} Item\+::prev}
+
+Pointer to the previous item in the list. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/module/\mbox{\hyperlink{Item_8h}{Item.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,197 @@
+\doxysection{src/module/\+My\+DLL.h File Reference}
+\hypertarget{MyDLL_8h}{}\label{MyDLL_8h}\index{src/module/MyDLL.h@{src/module/MyDLL.h}}
+
+
+Header file for the double linked list module.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{MyDLL_8h_a42059d7a40adca49b94c87002b2f1a75}{My\+DLLInit}} (int list\+Size\+Limit, uint16\+\_\+t item\+Size\+Limit)
+\begin{DoxyCompactList}\small\item\em Initializes the double linked list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{MyDLL_8h_aec024ae35b9755e7f3e77dfb2c2ed256}{My\+DLLInsert}} (uint16\+\_\+t key, unsigned char \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t data\+Size)
+\begin{DoxyCompactList}\small\item\em Inserts an item into the double linked list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{MyDLL_8h_a47c7b5416079822af3f412faee6fe72c}{My\+DLLRemove}} (uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Removes an item from the double linked list by key. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8h_a20756575f2a15114323d3f500f9e378c}{My\+DLLFind}} (uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Finds an item in the double linked list by key. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8h_a45efdb9a55a7d9e44c5cd4d0bf0ad5b7}{My\+DLLFind\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Finds the next item in the list. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8h_ab4c8461aa86713306b898b3bcb4c4a91}{My\+DLLFind\+Previous}} ()
+\begin{DoxyCompactList}\small\item\em Finds the previous item in the list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{MyDLL_8h_ab77e74bebe58380883568f4b338acd71}{My\+DLLPrint}} ()
+\begin{DoxyCompactList}\small\item\em Prints all items in the list in a table format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the double linked list module. 
+
+This file contains function declarations for managing a double linked list.
+
+\begin{DoxyAuthor}{Author}
+Pedro Ramos, n.\+º 107348 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/3/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{MyDLL_8h_a20756575f2a15114323d3f500f9e378c}\index{MyDLL.h@{MyDLL.h}!MyDLLFind@{MyDLLFind}}
+\index{MyDLLFind@{MyDLLFind}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLFind()}{MyDLLFind()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_a20756575f2a15114323d3f500f9e378c} 
+unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Finds an item in the double linked list by key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier of the item to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the data if found, NULL otherwise.
+\end{DoxyReturn}
+Finds an item in the double linked list by key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique identifier for the item to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the item\textquotesingle{}s data if found, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{MyDLL_8h_a45efdb9a55a7d9e44c5cd4d0bf0ad5b7}\index{MyDLL.h@{MyDLL.h}!MyDLLFindNext@{MyDLLFindNext}}
+\index{MyDLLFindNext@{MyDLLFindNext}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLFindNext()}{MyDLLFindNext()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_a45efdb9a55a7d9e44c5cd4d0bf0ad5b7} 
+unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Finds the next item in the list. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the data of the next item, or NULL if at the end.
+
+Pointer to the next item\textquotesingle{}s data if available, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{MyDLL_8h_ab4c8461aa86713306b898b3bcb4c4a91}\index{MyDLL.h@{MyDLL.h}!MyDLLFindPrevious@{MyDLLFindPrevious}}
+\index{MyDLLFindPrevious@{MyDLLFindPrevious}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLFindPrevious()}{MyDLLFindPrevious()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_ab4c8461aa86713306b898b3bcb4c4a91} 
+unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind\+Previous (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Finds the previous item in the list. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the data of the previous item, or NULL if at the start.
+
+Pointer to the previous item\textquotesingle{}s data if available, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{MyDLL_8h_a42059d7a40adca49b94c87002b2f1a75}\index{MyDLL.h@{MyDLL.h}!MyDLLInit@{MyDLLInit}}
+\index{MyDLLInit@{MyDLLInit}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLInit()}{MyDLLInit()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_a42059d7a40adca49b94c87002b2f1a75} 
+void My\+DLLInit (\begin{DoxyParamCaption}\item[{int}]{list\+Size\+Lim}{, }\item[{uint16\+\_\+t}]{item\+Size\+Lim}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the double linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Size\+Limit} & Maximum number of items in the list. \\
+\hline
+{\em item\+Size\+Limit} & Maximum size of each item in bytes.\\
+\hline
+{\em list\+Size\+Lim} & Maximum number of items allowed in the list. \\
+\hline
+{\em item\+Size\+Lim} & Maximum size of an individual item. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{MyDLL_8h_aec024ae35b9755e7f3e77dfb2c2ed256}\index{MyDLL.h@{MyDLL.h}!MyDLLInsert@{MyDLLInsert}}
+\index{MyDLLInsert@{MyDLLInsert}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLInsert()}{MyDLLInsert()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_aec024ae35b9755e7f3e77dfb2c2ed256} 
+int My\+DLLInsert (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{key}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint16\+\_\+t}]{data\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Inserts an item into the double linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier for the item. \\
+\hline
+{\em data} & Pointer to the data to be inserted. \\
+\hline
+{\em data\+Size} & Size of the data in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, 1 if insertion failed.
+\end{DoxyReturn}
+Inserts an item into the double linked list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique identifier for the item. \\
+\hline
+{\em data} & Pointer to the item\textquotesingle{}s data. \\
+\hline
+{\em data\+Size} & Size of the item\textquotesingle{}s data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{MyDLL_8h_ab77e74bebe58380883568f4b338acd71}\index{MyDLL.h@{MyDLL.h}!MyDLLPrint@{MyDLLPrint}}
+\index{MyDLLPrint@{MyDLLPrint}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLPrint()}{MyDLLPrint()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_ab77e74bebe58380883568f4b338acd71} 
+int My\+DLLPrint (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints all items in the list in a table format. 
+
+\begin{DoxyReturn}{Returns}
+0 if successful, or an error code if printing fails.
+\end{DoxyReturn}
+Prints all items in the list in a table format. \Hypertarget{MyDLL_8h_a47c7b5416079822af3f412faee6fe72c}\index{MyDLL.h@{MyDLL.h}!MyDLLRemove@{MyDLLRemove}}
+\index{MyDLLRemove@{MyDLLRemove}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLRemove()}{MyDLLRemove()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_a47c7b5416079822af3f412faee6fe72c} 
+int My\+DLLRemove (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Removes an item from the double linked list by key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier of the item to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, 1 if the item was not found.
+\end{DoxyReturn}
+Removes an item from the double linked list by key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique identifier for the item to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if the item was not found. 
+\end{DoxyReturn}
