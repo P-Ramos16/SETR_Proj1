@@ -34,14 +34,14 @@ int main(void) {
     printf(" │             Testing initialization            │\n");
     printf(" ├───────────────────────────────────────────────┤\n");
 
-    int listSizeLimit = 5;       /**< Maximum number of elements in the list. */
+    int listSizeLimit = 3;       /**< Maximum number of elements in the list. */
     uint16_t itemSizeLimit = 20; /**< Maximum size of an individual item. */
     
     MyDLLInit(listSizeLimit, itemSizeLimit);
     
     printf(" │  List initialized successfully with:          │\n");
-    printf(" │   - Maximum list size %2d                      │\n", listSizeLimit);
-    printf(" │   - Maximum item size %2d                      │\n", itemSizeLimit);
+    printf(" │   - Maximum list size: %2d                     │\n", listSizeLimit);
+    printf(" │   - Maximum item size: %2d                     │\n", itemSizeLimit);
     printf(" ╰───────────────────────────────────────────────╯\n\n");
     
 
@@ -50,42 +50,70 @@ int main(void) {
     /** @brief Inserts an item into the list. */
     printf(" ╭───────────────────────────────────────────────╮\n");
     printf(" │             Testing adding values             │\n");
-    printf(" ├───────────────────────────────────────────────┤\n");
+    printf(" ╰───────────────────────────────────────────────╯\n\n");
 
+    printf(" => Inserting 4 items\n");
 
     uint16_t key1 = 101;
     unsigned char data1[] = "TestData1";
 
+    printf("    -Item 1: ");
     if (MyDLLInsert(key1, data1, sizeof(data1)) == 0) {
-        printf(" │  Item %u: %s inserted successfully    │\n", key1, data1);
+        printf("successfull {%u: %s}!\n", key1, data1);
     } 
     else {
-        printf(" │  Item 1 inserted failed!                      │\n");
+        printf(" failed!\n");
     }
     
 
     uint16_t key2 = 12;
     unsigned char data2[] = "DB password";
     
+    printf("    -Item 2: ");
     if (MyDLLInsert(key2, data2, sizeof(data2)) == 0) {
-        printf(" │  Item %u: %s inserted successfully   │\n", key2, data2);
+        printf("successfull {%u: %s}!\n", key2, data2);
     } 
     else {
-        printf(" │  Item 2 inserted failed!                      │\n");
+        printf(" failed!\n");
+    }
+    
+
+    uint16_t key6 = 14;
+    unsigned char data6[] = "Important info that is too long";
+    
+    printf("    -Long item: ");
+    if (MyDLLInsert(key6, data6, sizeof(data6)) == 0) {
+        printf("successfull {%u: %s}!\n", key6, data6);
+    } 
+    else {
+        printf(" failed!\n");
     }
     
 
     uint16_t key3 = 3;
     unsigned char data3[] = "Important info";
     
+    printf("    -Item 3: ");
     if (MyDLLInsert(key3, data3, sizeof(data3)) == 0) {
-        printf(" │  Item %u: %s inserted successfully │\n", key3, data3);
+        printf("successfull {%u: %s}!\n", key3, data3);
     } 
     else {
-        printf(" │  Item 3 inserted failed!                      │\n");
+        printf(" failed!\n");
     }
     
-    printf(" ╰───────────────────────────────────────────────╯\n\n");
+
+    uint16_t key4 = 14;
+    unsigned char data4[] = "Important info";
+    
+    printf("    -Item 4 (too many): ");
+    if (MyDLLInsert(key4, data4, sizeof(data4)) == 0) {
+        printf("successfull {%u: %s}!\n", key4, data4);
+    } 
+    else {
+        printf(" failed!\n");
+    }
+    
+    printf("\n");
 
 
 
@@ -101,58 +129,68 @@ int main(void) {
     /** @brief Searches for an item with a specific key. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
     printf(" │                Testing search                 │\n");
-    printf(" ├───────────────────────────────────────────────┤\n");
+    printf(" ╰───────────────────────────────────────────────╯\n");
     unsigned char* foundData;
+
+    printf("    -Key 12: ");
 
     foundData = MyDLLFind(key2);
     if (foundData != NULL) {
-        printf(" │  - Key '%u' found successfully: '%s' │\n", key2, foundData);
+        printf("Key '%u' found successfully: '%s'\n", key2, foundData);
     } 
     else {
-        printf(" │  - Data with key %u not found                 │\n", key2);
+        printf("Key %u not found\n", key2);
     }
+
+    printf("    -Next item: ");
 
     foundData = MyDLLFindNext();
     if (foundData != NULL) {
-        printf(" │  - Next item data is: '%s'        │\n", foundData);
+        printf("Next item data is: '%s'\n", foundData);
     } 
     else {
-        printf(" │  - No next item in list                       │\n");
+        printf("No next item in list\n");
     }
 
+    printf("    -Next item: ");
+    
     foundData = MyDLLFindNext();
     if (foundData != NULL) {
-        printf(" │  - Next item data is: '%s'        │\n", foundData);
+        printf("Next item data is: '%s'\n", foundData);
     } 
     else {
-        printf(" │  - No next item in list                       │\n");
+        printf("No next item in list\n");
     }
+
+    printf("    -Previous item: ");
 
     foundData = MyDLLFindPrevious();
     if (foundData != NULL) {
-        printf(" │  - Previous item data is: '%s'       │\n", foundData);
+        printf("Previous item data is: '%s'\n", foundData);
     } 
     else {
-        printf(" │  - No previous item in list                   │\n");
+        printf("No previous item in list\n");
     }
+
+    printf("    -Previous item: ");
 
     foundData = MyDLLFindPrevious();
     if (foundData != NULL) {
-        printf(" │  - Previous item data is: '%s'         │\n", foundData);
+        printf("Previous item data is: '%s'\n", foundData);
     } 
     else {
-        printf(" │  - No previous item in list                   │\n");
+        printf("No previous item in list\n");
     }
+
+    printf("    -Previous item: ");
 
     foundData = MyDLLFindPrevious();
     if (foundData != NULL) {
-        printf(" │  - Previous item data is: '%s'    │\n", foundData);
+        printf("Previous item data is: '%s'\n", foundData);
     } 
     else {
-        printf(" │  - No previous item in list                   │\n");
+        printf("No previous item in list\n");
     }
-
-    printf(" ╰───────────────────────────────────────────────╯\n");
 
 
 
@@ -161,53 +199,65 @@ int main(void) {
     printf(" │            Testing removing items             │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");
 
+    printf("    -Remove item with key %d: ", key2);
     if (MyDLLRemove(key2) == 0) {
-        printf(" - Item 2 removed successfully!\n");
+        printf(" removed successfully!\n");
     } 
     else {
-        printf(" - Item 2 removal failed (key %d not found)!\n", key2);
+        printf(" removal failed (key %d not found)!\n", key2);
     }
 
     printf("   Current list:\n");
     MyDLLPrint();
     printf("\n");
 
+    printf("    -Remove item with key %d: ", key3);
     if (MyDLLRemove(key3) == 0) {
-        printf(" - Item 3 removed successfully!\n");
+        printf(" removed successfully!\n");
     } 
     else {
-        printf(" - Item 3 removal failed (key %d not found)!\n", key3);
+        printf(" removal failed (key %d not found)!\n", key3);
     }
 
     printf("   Current list:\n");
     MyDLLPrint();
     printf("\n");
 
-    if (MyDLLRemove(key1) == 0) {
-        printf(" - Item 1 removed successfully!\n");
-    } 
-    else {
-        printf(" - Item 1 removal failed (key %d not found)!\n", key1);
-    }
-
-    printf("   Current list:\n");
-    MyDLLPrint();
-    printf("\n");
-
-    // Try to remove an item inexistente
-    uint16_t key4 = 104;
+    key4 = 104;
+    printf("    -Remove item with key %d: ", key4);
     if (MyDLLRemove(key4) == 0) {
-        printf(" - Item 4 removed successfully!\n");
+        printf(" removed successfully!\n");
     } 
     else {
-        printf(" - Item 4 removal failed (key %d not found)!\n", key4);
+        printf(" removal failed!\n", key4);
+    }
+
+    printf("    -Remove item with key %d: ", key1);
+    if (MyDLLRemove(key1) == 0) {
+        printf(" removed successfully!\n");
+    } 
+    else {
+        printf(" removal failed!\n", key1);
+    }
+
+    printf("   Current list:\n");
+    MyDLLPrint();
+    printf("\n");
+
+    uint16_t key5 = 1005;
+    printf("    -Remove item with key %d: ", key5);
+    if (MyDLLRemove(key5) == 0) {
+        printf(" removed successfully!\n");
+    } 
+    else {
+        printf(" removal failed!\n", key5);
     }
 
 
 
     /** @brief Final list state. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
-    printf(" │                  List state                   │\n");
+    printf(" │               Final List state                │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");
     MyDLLPrint();
 
