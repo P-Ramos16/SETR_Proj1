@@ -193,7 +193,7 @@ int main(void) {
     }
 
 
-    /** @brief Inserts an item into the list. */
+    /** @brief Edits items from the list. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
     printf(" │            Testing editing values             │\n");
     printf(" ╰───────────────────────────────────────────────╯\n");
@@ -288,7 +288,7 @@ int main(void) {
     }
 
 
-    /** @brief Inserts an item into the list. */
+    /** @brief Adds 3 items and clears all items in the list. */
     printf(" ╭───────────────────────────────────────────────╮\n");
     printf(" │             Testing clearing list             │\n");
     printf(" ╰───────────────────────────────────────────────╯\n\n");
