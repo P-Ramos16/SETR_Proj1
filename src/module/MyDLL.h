@@ -67,6 +67,20 @@
   * \return 0 if successful, or an error code if printing fails.
   */
  int MyDLLPrint();
+
+ /**
+ * \brief Clears the entire double linked list, removing all items.
+ */
+void MyDLLClear();
+
+/**
+ * \brief Edits an existing item in the double linked list by removing and reinserting it.
+ * 
+ * \param key Unique key identifier of the item to edit.
+ * 
+ * \return 0 if successful, 1 if the item was not found or could not be reinserted.
+ */
+int MyDLLEdit(uint16_t key);
  
  #endif // MYDLL_H
  

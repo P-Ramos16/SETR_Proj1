@@ -278,3 +278,53 @@ int MyDLLPrint() {
     for (int i = 0; i < itemSizeLimit; i++) printf("─");
     printf("╯\n");
 }
+
+/**
+ * @brief Removes all items from the list, effectively clearing it.
+ */
+void MyDLLClear() {
+    while (head != NULL) {
+        MyDLLRemove(head->key);
+    }
+    printf(" - List cleared successfully!\n");
+}
+
+/**
+ * @brief Edits an existing item in the double linked list by removing and reinserting it.
+ * 
+ * @param key Unique key identifier of the item to edit.
+ * 
+ * @return 0 if successful, 1 if the item was not found.
+ */
+int MyDLLEdit(uint16_t key) {
+
+    unsigned char* oldData = MyDLLFind(key);   
+    if (oldData == NULL) {
+        printf(" - Error: Item not found. Cannot edit.\n");
+        return 1;
+    }
+    
+    // Remove
+    uint16_t oldDataSize = strlen((char*)oldData) + 1;
+    if (MyDLLRemove(key) != 0) {
+        printf(" - Error: Could not remove item for editing.\n");
+        return 1;
+    }
+
+    // Ask for new data
+    unsigned char newData[itemSizeLimit];
+    printf("Enter new data (max %d characters): ", itemSizeLimit - 1);
+    fgets((char*)newData, itemSizeLimit, stdin);
+    newData[strcspn((char*)newData, "\n")] = 0;
+
+    // Reinsert
+    if (MyDLLInsert(key, newData, strlen((char*)newData) + 1) == 0) {
+        printf(" - Item edited successfully!\n");
+        return 0;
+    } else {
+        printf(" - Error: Could not reinsert item after editing.\n");
+        return 1;
+    }
+}
+
+

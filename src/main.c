@@ -24,8 +24,10 @@ void showMenu() {
     printf("3 - Remove item |\n");
     printf("4 - Find item   |\n");
     printf("5 - Next item   |\n");
-    printf("6 - Prev item   |\n");    
-    printf("7 - Exit        |\n");
+    printf("6 - Prev item   |\n");
+    printf("7 - Edit item   |\n");    
+    printf("8 - Clear list  |\n");
+    printf("9 - Exit        |\n");
     printf("=================\n");
     printf("Choose an option: ");
 }
@@ -60,7 +62,7 @@ void showMenu() {
                 
                 printf("Type the data (max %d characters): ", itemSizeLimit - 1);
                 fgets((char*)data, itemSizeLimit, stdin);
-                data[strcspn((char*)data, "\n")] = 0; // Remove o ENTER
+                data[strcspn((char*)data, "\n")] = 0;
                 
                 if (MyDLLInsert(key, data, strlen((char*)data) + 1) == 0) {
                     printf(" - Item inserted successfully!\n");
@@ -74,8 +76,10 @@ void showMenu() {
                 printf("\nEnter the key of the item to remove: ");
                 scanf("%hu", &key);
                 
+                unsigned char* itemData = MyDLLFind(key);
+
                 if (MyDLLRemove(key) == 0) {
-                    printf(" - Item removed successfully!\n");
+                    printf(" - Item \"%s\" removed successfully!\n", itemData);
                     getchar();
                 } else {
                     printf(" - Error: Item not found.\n");
@@ -100,14 +104,39 @@ void showMenu() {
                 break;
             
             case 5:
-                printf("\nNÃO FEITO");
+                unsigned char* nextData = MyDLLFindNext();
+                if (nextData != NULL) {
+                    printf("\n - Next item: %s\n", nextData);
+                } else {
+                    printf("\n - No next item available.\n");
+                }
+                getchar();
                 break;
             
             case 6:
-                printf("\nNÃO FEITO");
+                unsigned char* prevData = MyDLLFindPrevious();
+                if (prevData != NULL) {
+                    printf("\n - Previous item: %s\n", prevData);
+                } else {
+                    printf("\n - No previous item available.\n");
+                }
+                getchar();
                 break;
-
+                
             case 7:
+                printf("\nEnter the key of the item to edit: ");
+                scanf("%hu", &key);
+                getchar();
+            
+                MyDLLEdit(key);
+                getchar();                
+                break;
+            
+            case 8:
+                MyDLLClear();
+                getchar();
+
+            case 9:
                 printf("\nExiting...\n");
                 break;
 
@@ -115,6 +144,6 @@ void showMenu() {
                 printf("\nInvalid option! Try again.\n");
                 getchar(); 
         }
-    } while (option != 7);
+    } while (option != 9);
     return 0;
 } 
