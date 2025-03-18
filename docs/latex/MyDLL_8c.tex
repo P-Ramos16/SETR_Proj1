@@ -12,20 +12,24 @@ Implementation of a double linked list (DLL) with various operations.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-c void \mbox{\hyperlink{MyDLL_8c_a973dc74d6b3887140a5e4d4447d07201}{My\+DLLInit}} (int list\+Size\+Lim, uint16\+\_\+t item\+Size\+Lim)
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8c_a20756575f2a15114323d3f500f9e378c}{My\+DLLFind}} (uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Finds an item in the list by key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MyDLL_8c_a4830540cc6977176ea032d126e3f98b2}{My\+DLLInit}} (int list\+Size\+Lim, uint16\+\_\+t item\+Size\+Lim)
 \begin{DoxyCompactList}\small\item\em Initializes the double linked list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MyDLL_8c_aec024ae35b9755e7f3e77dfb2c2ed256}{My\+DLLInsert}} (uint16\+\_\+t key, unsigned char \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t data\+Size)
 \begin{DoxyCompactList}\small\item\em Inserts a new item into the list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MyDLL_8c_a47c7b5416079822af3f412faee6fe72c}{My\+DLLRemove}} (uint16\+\_\+t key)
 \begin{DoxyCompactList}\small\item\em Removes an item from the list. \end{DoxyCompactList}\item 
-unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8c_a20756575f2a15114323d3f500f9e378c}{My\+DLLFind}} (uint16\+\_\+t key)
-\begin{DoxyCompactList}\small\item\em Finds an item in the list by key. \end{DoxyCompactList}\item 
 unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8c_a45efdb9a55a7d9e44c5cd4d0bf0ad5b7}{My\+DLLFind\+Next}} ()
 \begin{DoxyCompactList}\small\item\em Finds the next item in the list. \end{DoxyCompactList}\item 
 unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8c_ab4c8461aa86713306b898b3bcb4c4a91}{My\+DLLFind\+Previous}} ()
 \begin{DoxyCompactList}\small\item\em Finds the previous item in the list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MyDLL_8c_ab77e74bebe58380883568f4b338acd71}{My\+DLLPrint}} ()
-\begin{DoxyCompactList}\small\item\em Prints the contents of the list in a formatted table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the contents of the list in a formatted table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MyDLL_8c_ae5f942ee326c0ecbfef36f3fd51b0e9c}{My\+DLLClear}} ()
+\begin{DoxyCompactList}\small\item\em Removes all items from the list, effectively clearing it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{MyDLL_8c_a331ea069329f417f0abafef76e3aef02}{My\+DLLEdit}} (uint16\+\_\+t key, unsigned char \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t data\+Size)
+\begin{DoxyCompactList}\small\item\em Edits an existing item in the double linked list by removing and reinserting it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -44,6 +48,38 @@ Rafael Morgado, n.\+º 104277
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{MyDLL_8c_ae5f942ee326c0ecbfef36f3fd51b0e9c}\index{MyDLL.c@{MyDLL.c}!MyDLLClear@{MyDLLClear}}
+\index{MyDLLClear@{MyDLLClear}!MyDLL.c@{MyDLL.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLClear()}{MyDLLClear()}}
+{\footnotesize\ttfamily \label{MyDLL_8c_ae5f942ee326c0ecbfef36f3fd51b0e9c} 
+void My\+DLLClear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes all items from the list, effectively clearing it. 
+
+Clears the entire double linked list, removing all items. \Hypertarget{MyDLL_8c_a331ea069329f417f0abafef76e3aef02}\index{MyDLL.c@{MyDLL.c}!MyDLLEdit@{MyDLLEdit}}
+\index{MyDLLEdit@{MyDLLEdit}!MyDLL.c@{MyDLL.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLEdit()}{MyDLLEdit()}}
+{\footnotesize\ttfamily \label{MyDLL_8c_a331ea069329f417f0abafef76e3aef02} 
+int My\+DLLEdit (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{key}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint16\+\_\+t}]{data\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Edits an existing item in the double linked list by removing and reinserting it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier of the item to edit. \\
+\hline
+{\em data} & Pointer to the item\textquotesingle{}s new data. \\
+\hline
+{\em data\+Size} & Size of the item\textquotesingle{}s data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, 1 if the item was not found. 
+\end{DoxyReturn}
 \Hypertarget{MyDLL_8c_a20756575f2a15114323d3f500f9e378c}\index{MyDLL.c@{MyDLL.c}!MyDLLFind@{MyDLLFind}}
 \index{MyDLLFind@{MyDLLFind}!MyDLL.c@{MyDLL.c}}
 \doxysubsubsection{\texorpdfstring{MyDLLFind()}{MyDLLFind()}}
@@ -90,11 +126,11 @@ Finds the previous item in the list.
 \begin{DoxyReturn}{Returns}
 Pointer to the previous item\textquotesingle{}s data if available, NULL otherwise. 
 \end{DoxyReturn}
-\Hypertarget{MyDLL_8c_a973dc74d6b3887140a5e4d4447d07201}\index{MyDLL.c@{MyDLL.c}!MyDLLInit@{MyDLLInit}}
+\Hypertarget{MyDLL_8c_a4830540cc6977176ea032d126e3f98b2}\index{MyDLL.c@{MyDLL.c}!MyDLLInit@{MyDLLInit}}
 \index{MyDLLInit@{MyDLLInit}!MyDLL.c@{MyDLL.c}}
 \doxysubsubsection{\texorpdfstring{MyDLLInit()}{MyDLLInit()}}
-{\footnotesize\ttfamily \label{MyDLL_8c_a973dc74d6b3887140a5e4d4447d07201} 
-c void My\+DLLInit (\begin{DoxyParamCaption}\item[{int}]{list\+Size\+Lim}{, }\item[{uint16\+\_\+t}]{item\+Size\+Lim}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{MyDLL_8c_a4830540cc6977176ea032d126e3f98b2} 
+void My\+DLLInit (\begin{DoxyParamCaption}\item[{int}]{list\+Size\+Lim}{, }\item[{uint16\+\_\+t}]{item\+Size\+Lim}{}\end{DoxyParamCaption})}
 
 
 

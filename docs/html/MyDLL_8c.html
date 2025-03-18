@@ -118,18 +118,18 @@ $(function(){initNavTree('MyDLL_8c.html',''); initResizable(true); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a973dc74d6b3887140a5e4d4447d07201" id="r_a973dc74d6b3887140a5e4d4447d07201"><td class="memItemLeft" align="right" valign="top">c void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a973dc74d6b3887140a5e4d4447d07201">MyDLLInit</a> (int listSizeLim, uint16_t itemSizeLim)</td></tr>
-<tr class="memdesc:a973dc74d6b3887140a5e4d4447d07201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the double linked list.  <br /></td></tr>
-<tr class="separator:a973dc74d6b3887140a5e4d4447d07201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20756575f2a15114323d3f500f9e378c" id="r_a20756575f2a15114323d3f500f9e378c"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20756575f2a15114323d3f500f9e378c">MyDLLFind</a> (uint16_t key)</td></tr>
+<tr class="memdesc:a20756575f2a15114323d3f500f9e378c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an item in the list by key.  <br /></td></tr>
+<tr class="separator:a20756575f2a15114323d3f500f9e378c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4830540cc6977176ea032d126e3f98b2" id="r_a4830540cc6977176ea032d126e3f98b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4830540cc6977176ea032d126e3f98b2">MyDLLInit</a> (int listSizeLim, uint16_t itemSizeLim)</td></tr>
+<tr class="memdesc:a4830540cc6977176ea032d126e3f98b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the double linked list.  <br /></td></tr>
+<tr class="separator:a4830540cc6977176ea032d126e3f98b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec024ae35b9755e7f3e77dfb2c2ed256" id="r_aec024ae35b9755e7f3e77dfb2c2ed256"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec024ae35b9755e7f3e77dfb2c2ed256">MyDLLInsert</a> (uint16_t key, unsigned char *data, uint16_t dataSize)</td></tr>
 <tr class="memdesc:aec024ae35b9755e7f3e77dfb2c2ed256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a new item into the list.  <br /></td></tr>
 <tr class="separator:aec024ae35b9755e7f3e77dfb2c2ed256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c7b5416079822af3f412faee6fe72c" id="r_a47c7b5416079822af3f412faee6fe72c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c7b5416079822af3f412faee6fe72c">MyDLLRemove</a> (uint16_t key)</td></tr>
 <tr class="memdesc:a47c7b5416079822af3f412faee6fe72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from the list.  <br /></td></tr>
 <tr class="separator:a47c7b5416079822af3f412faee6fe72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20756575f2a15114323d3f500f9e378c" id="r_a20756575f2a15114323d3f500f9e378c"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20756575f2a15114323d3f500f9e378c">MyDLLFind</a> (uint16_t key)</td></tr>
-<tr class="memdesc:a20756575f2a15114323d3f500f9e378c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an item in the list by key.  <br /></td></tr>
-<tr class="separator:a20756575f2a15114323d3f500f9e378c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45efdb9a55a7d9e44c5cd4d0bf0ad5b7" id="r_a45efdb9a55a7d9e44c5cd4d0bf0ad5b7"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45efdb9a55a7d9e44c5cd4d0bf0ad5b7">MyDLLFindNext</a> ()</td></tr>
 <tr class="memdesc:a45efdb9a55a7d9e44c5cd4d0bf0ad5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the next item in the list.  <br /></td></tr>
 <tr class="separator:a45efdb9a55a7d9e44c5cd4d0bf0ad5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +139,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab77e74bebe58380883568f4b338acd71" id="r_ab77e74bebe58380883568f4b338acd71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77e74bebe58380883568f4b338acd71">MyDLLPrint</a> ()</td></tr>
 <tr class="memdesc:ab77e74bebe58380883568f4b338acd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the contents of the list in a formatted table.  <br /></td></tr>
 <tr class="separator:ab77e74bebe58380883568f4b338acd71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f942ee326c0ecbfef36f3fd51b0e9c" id="r_ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5f942ee326c0ecbfef36f3fd51b0e9c">MyDLLClear</a> ()</td></tr>
+<tr class="memdesc:ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all items from the list, effectively clearing it.  <br /></td></tr>
+<tr class="separator:ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331ea069329f417f0abafef76e3aef02" id="r_a331ea069329f417f0abafef76e3aef02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331ea069329f417f0abafef76e3aef02">MyDLLEdit</a> (uint16_t key, unsigned char *data, uint16_t dataSize)</td></tr>
+<tr class="memdesc:a331ea069329f417f0abafef76e3aef02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits an existing item in the double linked list by removing and reinserting it.  <br /></td></tr>
+<tr class="separator:a331ea069329f417f0abafef76e3aef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of a double linked list (DLL) with various operations. </p>
@@ -148,6 +154,63 @@ Functions</h2></td></tr>
 Rafael Morgado, n.º 104277 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>13/3/2025 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae5f942ee326c0ecbfef36f3fd51b0e9c" name="ae5f942ee326c0ecbfef36f3fd51b0e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f942ee326c0ecbfef36f3fd51b0e9c">&#9670;&#160;</a></span>MyDLLClear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MyDLLClear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all items from the list, effectively clearing it. </p>
+<p>Clears the entire double linked list, removing all items. </p>
+
+</div>
+</div>
+<a id="a331ea069329f417f0abafef76e3aef02" name="a331ea069329f417f0abafef76e3aef02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331ea069329f417f0abafef76e3aef02">&#9670;&#160;</a></span>MyDLLEdit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MyDLLEdit </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dataSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edits an existing item in the double linked list by removing and reinserting it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Unique key identifier of the item to edit. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the item's new data. </td></tr>
+    <tr><td class="paramname">dataSize</td><td>Size of the item's data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successful, 1 if the item was not found. </dd></dl>
+
+</div>
+</div>
 <a id="a20756575f2a15114323d3f500f9e378c" name="a20756575f2a15114323d3f500f9e378c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20756575f2a15114323d3f500f9e378c">&#9670;&#160;</a></span>MyDLLFind()</h2>
 
@@ -215,14 +278,14 @@ Rafael Morgado, n.º 104277 </dd></dl>
 
 </div>
 </div>
-<a id="a973dc74d6b3887140a5e4d4447d07201" name="a973dc74d6b3887140a5e4d4447d07201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a973dc74d6b3887140a5e4d4447d07201">&#9670;&#160;</a></span>MyDLLInit()</h2>
+<a id="a4830540cc6977176ea032d126e3f98b2" name="a4830540cc6977176ea032d126e3f98b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4830540cc6977176ea032d126e3f98b2">&#9670;&#160;</a></span>MyDLLInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">c void MyDLLInit </td>
+          <td class="memname">void MyDLLInit </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>listSizeLim</em></span>, </td>
         </tr>

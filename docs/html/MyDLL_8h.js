@@ -1,5 +1,7 @@
 var MyDLL_8h =
 [
+    [ "MyDLLClear", "MyDLL_8h.html#ae5f942ee326c0ecbfef36f3fd51b0e9c", null ],
+    [ "MyDLLEdit", "MyDLL_8h.html#a331ea069329f417f0abafef76e3aef02", null ],
     [ "MyDLLFind", "MyDLL_8h.html#a20756575f2a15114323d3f500f9e378c", null ],
     [ "MyDLLFindNext", "MyDLL_8h.html#a45efdb9a55a7d9e44c5cd4d0bf0ad5b7", null ],
     [ "MyDLLFindPrevious", "MyDLL_8h.html#ab4c8461aa86713306b898b3bcb4c4a91", null ],

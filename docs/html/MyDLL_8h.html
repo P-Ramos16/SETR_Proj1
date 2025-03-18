@@ -138,6 +138,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab77e74bebe58380883568f4b338acd71" id="r_ab77e74bebe58380883568f4b338acd71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77e74bebe58380883568f4b338acd71">MyDLLPrint</a> ()</td></tr>
 <tr class="memdesc:ab77e74bebe58380883568f4b338acd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all items in the list in a table format.  <br /></td></tr>
 <tr class="separator:ab77e74bebe58380883568f4b338acd71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f942ee326c0ecbfef36f3fd51b0e9c" id="r_ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5f942ee326c0ecbfef36f3fd51b0e9c">MyDLLClear</a> ()</td></tr>
+<tr class="memdesc:ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the entire double linked list, removing all items.  <br /></td></tr>
+<tr class="separator:ae5f942ee326c0ecbfef36f3fd51b0e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331ea069329f417f0abafef76e3aef02" id="r_a331ea069329f417f0abafef76e3aef02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331ea069329f417f0abafef76e3aef02">MyDLLEdit</a> (uint16_t key, unsigned char *data, uint16_t dataSize)</td></tr>
+<tr class="memdesc:a331ea069329f417f0abafef76e3aef02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits an existing item in the double linked list by removing and reinserting it.  <br /></td></tr>
+<tr class="separator:a331ea069329f417f0abafef76e3aef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for the double linked list module. </p>
@@ -145,6 +151,70 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Pedro Ramos, n.º 107348 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/3/2025 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae5f942ee326c0ecbfef36f3fd51b0e9c" name="ae5f942ee326c0ecbfef36f3fd51b0e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f942ee326c0ecbfef36f3fd51b0e9c">&#9670;&#160;</a></span>MyDLLClear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MyDLLClear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the entire double linked list, removing all items. </p>
+<p>Clears the entire double linked list, removing all items. </p>
+
+</div>
+</div>
+<a id="a331ea069329f417f0abafef76e3aef02" name="a331ea069329f417f0abafef76e3aef02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331ea069329f417f0abafef76e3aef02">&#9670;&#160;</a></span>MyDLLEdit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MyDLLEdit </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dataSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edits an existing item in the double linked list by removing and reinserting it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Unique key identifier of the item to edit.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successful, 1 if the item was not found or could not be reinserted.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Unique key identifier of the item to edit. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the item's new data. </td></tr>
+    <tr><td class="paramname">dataSize</td><td>Size of the item's data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successful, 1 if the item was not found. </dd></dl>
+
+</div>
+</div>
 <a id="a20756575f2a15114323d3f500f9e378c" name="a20756575f2a15114323d3f500f9e378c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20756575f2a15114323d3f500f9e378c">&#9670;&#160;</a></span>MyDLLFind()</h2>
 

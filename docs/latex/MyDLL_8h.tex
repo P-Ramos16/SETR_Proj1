@@ -22,7 +22,11 @@ unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8h_a45efdb9a55a7
 unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{MyDLL_8h_ab4c8461aa86713306b898b3bcb4c4a91}{My\+DLLFind\+Previous}} ()
 \begin{DoxyCompactList}\small\item\em Finds the previous item in the list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MyDLL_8h_ab77e74bebe58380883568f4b338acd71}{My\+DLLPrint}} ()
-\begin{DoxyCompactList}\small\item\em Prints all items in the list in a table format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all items in the list in a table format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{MyDLL_8h_ae5f942ee326c0ecbfef36f3fd51b0e9c}{My\+DLLClear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the entire double linked list, removing all items. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{MyDLL_8h_a331ea069329f417f0abafef76e3aef02}{My\+DLLEdit}} (uint16\+\_\+t key, unsigned char \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t data\+Size)
+\begin{DoxyCompactList}\small\item\em Edits an existing item in the double linked list by removing and reinserting it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -39,6 +43,46 @@ Pedro Ramos, n.\+º 107348
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{MyDLL_8h_ae5f942ee326c0ecbfef36f3fd51b0e9c}\index{MyDLL.h@{MyDLL.h}!MyDLLClear@{MyDLLClear}}
+\index{MyDLLClear@{MyDLLClear}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLClear()}{MyDLLClear()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_ae5f942ee326c0ecbfef36f3fd51b0e9c} 
+void My\+DLLClear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the entire double linked list, removing all items. 
+
+Clears the entire double linked list, removing all items. \Hypertarget{MyDLL_8h_a331ea069329f417f0abafef76e3aef02}\index{MyDLL.h@{MyDLL.h}!MyDLLEdit@{MyDLLEdit}}
+\index{MyDLLEdit@{MyDLLEdit}!MyDLL.h@{MyDLL.h}}
+\doxysubsubsection{\texorpdfstring{MyDLLEdit()}{MyDLLEdit()}}
+{\footnotesize\ttfamily \label{MyDLL_8h_a331ea069329f417f0abafef76e3aef02} 
+int My\+DLLEdit (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{key}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint16\+\_\+t}]{data\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Edits an existing item in the double linked list by removing and reinserting it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier of the item to edit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, 1 if the item was not found or could not be reinserted.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Unique key identifier of the item to edit. \\
+\hline
+{\em data} & Pointer to the item\textquotesingle{}s new data. \\
+\hline
+{\em data\+Size} & Size of the item\textquotesingle{}s data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, 1 if the item was not found. 
+\end{DoxyReturn}
 \Hypertarget{MyDLL_8h_a20756575f2a15114323d3f500f9e378c}\index{MyDLL.h@{MyDLL.h}!MyDLLFind@{MyDLLFind}}
 \index{MyDLLFind@{MyDLLFind}!MyDLL.h@{MyDLL.h}}
 \doxysubsubsection{\texorpdfstring{MyDLLFind()}{MyDLLFind()}}
