@@ -286,45 +286,71 @@ void MyDLLClear() {
     while (head != NULL) {
         MyDLLRemove(head->key);
     }
-    printf(" - List cleared successfully!\n");
+    printf(" - List cleared successfully!");
 }
 
 /**
  * @brief Edits an existing item in the double linked list by removing and reinserting it.
  * 
  * @param key Unique key identifier of the item to edit.
+ * @param data Pointer to the item's new data.
+ * @param dataSize Size of the item's data.
  * 
  * @return 0 if successful, 1 if the item was not found.
  */
-int MyDLLEdit(uint16_t key) {
+int MyDLLEdit(uint16_t key, unsigned char* data, uint16_t dataSize) {
 
-    unsigned char* oldData = MyDLLFind(key);   
-    if (oldData == NULL) {
-        printf(" - Error: Item not found. Cannot edit.\n");
+    if (head == NULL) {
+        //  ERROR: List is empty! Cannot search.
         return 1;
     }
+
+    if (dataSize > itemSizeLimit) {
+        printf("ERROR: Item is too large to be added! Item not added.");
+        return 1;
+    }
+
+    Item* oldItem = head;
+
+    // search for the item with the key
+    while (oldItem != NULL && oldItem->key != key) {
+        oldItem = oldItem->next;
+    }
+
+    if (oldItem == NULL) {
+        printf(" - Error: Item not found. Cannot edit.");
+        return 1;
+    }
+
+
+    Item* newItem = (Item*) malloc(sizeof(Item) + dataSize);
+    if (!newItem)  {
+        printf("ERROR: Item memory allocation did not succeed!");
+        free(newItem);
+        exit(EXIT_FAILURE);
+    }
+
+    newItem->key = oldItem->key;
+    newItem->prev = oldItem->prev;
+    newItem->next = oldItem->next;
+    newItem->dataSize = dataSize;
+
+    if (oldItem->prev != NULL) {
+        oldItem->prev->next = newItem;
+    }
+    else {
+        head = newItem;
+    }
+    if (oldItem->next != NULL) {
+        oldItem->next->prev = newItem;
+    }
+
+    memcpy(newItem->data, data, dataSize);
     
     // Remove
-    uint16_t oldDataSize = strlen((char*)oldData) + 1;
-    if (MyDLLRemove(key) != 0) {
-        printf(" - Error: Could not remove item for editing.\n");
-        return 1;
-    }
+    free(oldItem);
 
-    // Ask for new data
-    unsigned char newData[itemSizeLimit];
-    printf("Enter new data (max %d characters): ", itemSizeLimit - 1);
-    fgets((char*)newData, itemSizeLimit, stdin);
-    newData[strcspn((char*)newData, "\n")] = 0;
-
-    // Reinsert
-    if (MyDLLInsert(key, newData, strlen((char*)newData) + 1) == 0) {
-        printf(" - Item edited successfully!\n");
-        return 0;
-    } else {
-        printf(" - Error: Could not reinsert item after editing.\n");
-        return 1;
-    }
+    return 0;
 }
 
 

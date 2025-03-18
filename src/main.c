@@ -42,6 +42,7 @@ void showMenu() {
     int option;
     uint16_t key;
     unsigned char data[itemSizeLimit];
+    unsigned char newData[itemSizeLimit];
     
     do {
         showMenu();
@@ -128,7 +129,12 @@ void showMenu() {
                 scanf("%hu", &key);
                 getchar();
             
-                MyDLLEdit(key);
+                // Ask for new data
+                printf("Enter new data (max %d characters): ", itemSizeLimit - 1);
+                fgets((char*)newData, itemSizeLimit, stdin);
+                newData[strcspn((char*)newData, "\n")] = 0;
+
+                MyDLLEdit(key, newData, sizeof(newData));
                 getchar();                
                 break;
             

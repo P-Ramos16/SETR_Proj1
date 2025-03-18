@@ -80,7 +80,7 @@ void MyDLLClear();
  * 
  * \return 0 if successful, 1 if the item was not found or could not be reinserted.
  */
-int MyDLLEdit(uint16_t key);
+int MyDLLEdit(uint16_t key, unsigned char* data, uint16_t dataSize);
  
  #endif // MYDLL_H
  

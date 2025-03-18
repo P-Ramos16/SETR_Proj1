@@ -193,6 +193,40 @@ int main(void) {
     }
 
 
+    /** @brief Inserts an item into the list. */
+    printf("\n ╭───────────────────────────────────────────────╮\n");
+    printf(" │            Testing editing values             │\n");
+    printf(" ╰───────────────────────────────────────────────╯\n");
+
+
+    unsigned char data1New[] = "New larger data!";
+
+    printf(" => Editing item with key %u to \"%s\" \n", key1, data1New);
+
+    printf("    -Item 1: ");
+    if (MyDLLEdit(key1, data1New, sizeof(data1New)) == 0) {
+        printf("successfull!\n");
+    } 
+    else {
+        printf(" failed!\n");
+    }
+
+    printf("   Current list:\n");
+    MyDLLPrint();
+    printf("\n");
+
+    unsigned char data2New[] = "Even newer data!";
+
+    printf(" => Editing item with key %u to \"%s\" \n", key6, data2New);
+
+    printf("    -Item 1: ");
+    if (MyDLLEdit(key6, data2New, sizeof(data2New)) == 0) {
+        printf("successfull!\n");
+    } 
+    else {
+        printf(" failed!\n");
+    }
+
 
     /** @brief Removes an item from the list. */
     printf("\n ╭───────────────────────────────────────────────╮\n");
@@ -253,6 +287,44 @@ int main(void) {
         printf(" removal failed!\n", key5);
     }
 
+
+    /** @brief Inserts an item into the list. */
+    printf(" ╭───────────────────────────────────────────────╮\n");
+    printf(" │             Testing clearing list             │\n");
+    printf(" ╰───────────────────────────────────────────────╯\n\n");
+
+    printf(" => Inserting 3 items\n");
+    printf("    -Item 1: ");
+    if (MyDLLInsert(key1, data1, sizeof(data1)) == 0) {
+        printf("successfull {%u: %s}!\n", key1, data1);
+    } 
+    else {
+        printf(" failed!\n");
+    }
+    printf("    -Item 2: ");
+    if (MyDLLInsert(key2, data2, sizeof(data2)) == 0) {
+        printf("successfull {%u: %s}!\n", key2, data2);
+    } 
+    else {
+        printf(" failed!\n");
+    }
+    printf("    -Item 3: ");
+    if (MyDLLInsert(key3, data3, sizeof(data3)) == 0) {
+        printf("successfull {%u: %s}!\n", key3, data3);
+    } 
+    else {
+        printf(" failed!\n");
+    }
+
+    printf("\n   Current list:\n");
+    MyDLLPrint();
+    printf("\n");
+    printf("    -Clear all: ");
+    MyDLLClear();
+    printf("\n");
+    printf("   Current list:\n");
+    MyDLLPrint();
+    printf("\n");
 
 
     /** @brief Final list state. */
